@@ -1,6 +1,4 @@
 ---
-// רשימת החלקים מגיעה מהעמוד שמשתמש ברכיב.
-// כל חלק: כותרת, ואופציונלי קישור לסרטון.
 const { sections = [], storageKey = 'progress' } = Astro.props;
 ---
 
@@ -17,12 +15,15 @@ const { sections = [], storageKey = 'progress' } = Astro.props;
           <h3>{s.title}</h3>
           <button class="pt-btn" data-index={i}>סמן כהושלם</button>
         </div>
-       {s.video && (
-          <div class="pt-video">
-            <video controls width="100%" style="border-radius:8px;" poster={s.poster}>
-              <source src={s.video} />
-              הדפדפן שלך לא תומך בהצגת וידאו.
-            </video>
+        {s.video && (
+          <div class="pt-video-container">
+            <iframe 
+              src={s.video} 
+              title={s.title}
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
           </div>
         )}
       </div>
@@ -38,7 +39,6 @@ const { sections = [], storageKey = 'progress' } = Astro.props;
     const countEl = wrap.querySelector('.pt-count');
     const buttons = wrap.querySelectorAll('.pt-btn');
 
-    // טעינת התקדמות שמורה מהדפדפן
     let done = JSON.parse(localStorage.getItem(key) || '[]');
 
     function colorFor(pct) {
@@ -71,7 +71,7 @@ const { sections = [], storageKey = 'progress' } = Astro.props;
       btn.addEventListener('click', () => {
         const i = parseInt(btn.getAttribute('data-index'));
         if (done.includes(i)) {
-          done = done.filter((x) => x !== i); // ביטול סימון
+          done = done.filter((x) => x !== i);
         } else {
           done.push(i);
         }
@@ -129,5 +129,21 @@ const { sections = [], storageKey = 'progress' } = Astro.props;
     white-space: nowrap;
   }
   .pt-btn-done { background: hsl(120, 85%, 35%); }
-  .pt-video { margin-top: 1rem; }
+  
+  /* עיצוב חדש ששומר על פרופורציה נכונה של יוטיוב */
+  .pt-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* יוצר יחס של 16:9 */
+    height: 0;
+    margin-top: 1rem;
+  }
+  .pt-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
 </style>
