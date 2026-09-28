@@ -335,3 +335,62 @@ h1#_top {
   color: var(--frc-text-soft);
   font-size: 0.95rem;
 }
+/* בלוק לוגואים בתחתית העמוד */
+.frc-logos-box {
+  background: var(--frc-gray-bg);
+  border: 1px solid var(--frc-border);
+  border-radius: var(--frc-radius);
+  padding: 1.5rem 2rem;
+  margin-block: 2rem;
+  box-shadow: var(--frc-shadow);
+}
+.frc-logos-title {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--frc-text-soft);
+  margin-bottom: 1.2rem;
+}
+.frc-logos-row {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}.frc-logos-row img {
+  width: 130px !important;
+  height: 130px !important;
+  max-width: 130px !important;
+  object-fit: contain;
+  margin: 0 !important;
+}.frc-logos-divider {
+  width: 2px;
+  height: 100px;
+  background: var(--frc-red);
+  border-radius: 2px;
+}
+/* הגדלת לוגו הקבוצה בלבד */
+.frc-logos-row img.frc-team-logo {
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px !important;
+}
+/* כפתור העתקת מייל */
+button.frc-email-text {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+button.frc-email-text:hover {
+  background: var(--frc-red-soft);
+}
+button.frc-email-text .copy-label {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  color: var(--frc-maroon);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
