@@ -18,14 +18,25 @@ description: מדריך לקבוצות FRC חדשות
 </div>
 
 FIRST היא תוכנית בינלאומית שמחברת נוער לעולם המדע והטכנולוגיה דרך תחרויות רובוטיקה.
+
 <div class="frc-contact-box">
   <div class="frc-contact-icon-lg"><i class="ti ti-mail"></i></div>
   <strong>יש לכם שאלות או המלצות?</strong>
   <p>מוזמנים לפנות אלינו בכל זמן!</p>
-  <div class="frc-email-text">rookies.site@www.ma5951.com</div>
+   <button class="frc-email-text" onclick="navigator.clipboard.writeText('MA-5951@tichonet.com'); this.dataset.copied='true'; const t=this.querySelector('.copy-label'); const o=t.textContent; t.textContent='✓ הועתק!'; setTimeout(()=>{t.textContent=o;this.dataset.copied='false'},1500);">
+    <span class="copy-label">MA-5951@tichonet.com</span>
+  </button>
 </div>
 
 <div class="frc-callout">
   <strong>מטרת האתר</strong>
   <p style="margin: 0.4rem 0 0;">האתר נועד לעזור לקבוצות FRC חדשות להיכנס לעולם התחרויות.</p>
+</div>
+
+<div class="frc-logos-box">
+  <div class="frc-logos-row">
+    <img src="/first-logo-no-bg.png" alt="לוגו FIRST" />
+    <div class="frc-logos-divider"></div>
+        <img src="/logo.png" alt="לוגו הקבוצה" class="frc-team-logo" />
+  </div>
 </div>
